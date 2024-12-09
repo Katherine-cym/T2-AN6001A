@@ -39,9 +39,9 @@ def genAI():
 @app.route("/genAI_result", methods=['GET', 'POST'])
 def genAI_result():
     q = request.form.get("q")
-    result = model.generate_content(q)
+    result = model.generate_content(q).candidates[0].content.parts[0].text
 
-    return render_template('genAI_result.html', result=result.candidates[0].content.parts[0].text)
+    return render_template('genAI_result.html', result=result)
 
 
 if __name__ == '__main__':
