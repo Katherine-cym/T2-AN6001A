@@ -43,6 +43,10 @@ def genAI_result():
 
     return render_template('genAI_result.html', result=result)
 
+@app.route("/paynow",methods = ['GET','POST'])
+def paynow():
+    return(render_template('paynow.html'))
+
 
 if __name__ == '__main__':
     app.run(port = 5000)# port: local host
